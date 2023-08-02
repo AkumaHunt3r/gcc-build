@@ -1,8 +1,7 @@
 # GCC Cross Compiler Toolchain Build Script
 
-![ARM GCC Build](https://github.com/mvaisakh/gcc-build/workflows/ARM%20GCC%20Build/badge.svg) ![ARM64 GCC Build](https://github.com/mvaisakh/gcc-build/workflows/ARM64%20GCC%20Build/badge.svg) 
-
-This repository contains the script needed to compile bare metal GCC for various architectures using Linux distributions. The GCC source is fetched from the master branch hence, contains all the bleeding edge changes.
+This repository contains the scripts needed to compile bare metal GCC for various architectures using Linux distributions.
+The GCC source is fetched from the stable branch hence, contains all the latest and stable changes.
 
 ## Before we start
 
@@ -42,23 +41,26 @@ git clone https://github.com/mvaisakh/gcc-build.git gcc-build
 ```bash
 ./build-gcc.sh -a <architechture>
 ```
-> As of now, I only support **arm**, **arm64** and **x86 (compiles for x86_64 only)**. This list is subject to change as I receive requests.
+
+LLD can be built and installed into the toolchain:
+
+```bash
+./build-lld.sh -a <architecture>
+```
+
+> As of now, I only support **arm**, **arm64** and **x86 (compiles for x86_64 only)**. This list is NOT subject to change.
 
 > Keep in mind that this script contains just the bare minimum prerequisites.
 
 ## Credits
 
-* [Vaisakh (me)](https://github.com/mvaisakh/) for writing this script.
-* [OS Dev Wiki](https://wiki.osdev.org) for knowledge base.
-* [USBHost's Amazing GCC Build script](https://github.com/USBhost/build-tools-gcc) for certain prerequisite dependencies.
-
-## Looking for precompiled toolchains?
-
-My GCC Cross Compiler builds are automated and pushed biweekly i.e. on Sundays & Thursdays at 00:00 GMT+5:30 (IST). They are pushed to:
-* **[ARM64](https://github.com/mvaisakh/gcc-arm64)**
-* **[ARM32](https://github.com/mvaisakh/gcc-arm)**
-* **[X86_64](https://github.com/mvaisakh/gcc-x86)** (Not built on cron anymore)
+* [Vaisakh (original author)](https://github.com/mvaisakh/) for writing this script.
+* [OSDev Wiki](https://wiki.osdev.org) for knowledge base.
+* [USBHost's amazing GCC build script](https://github.com/USBhost/build-tools-gcc) for certain prerequisite dependencies.
 
 ## Contributing to this repo
 
-You're more than welcome to improve the contents within this script with a pull request. Enjoy :)
+You're more than welcome to improve the contents within the scripts with pull requests.
+However, please contribute your changes to [Vaisakh's repository](https://github.com/mvaisakh/gcc-build) instead.
+
+Enjoy :)
