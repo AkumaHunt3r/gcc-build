@@ -4,7 +4,7 @@
 set -e
 
 echo "*****************************************"
-echo "* Building Bare-Metal Bleeding Edge GCC *"
+echo "* Building Bare-Metal GCC *"
 echo "*****************************************"
 
 # TODO: Add more dynamic option handling
@@ -39,9 +39,9 @@ echo "||                                                                    ||"
 
 download_resources() {
   echo "Downloading Pre-requisites"
-  echo "Cloning binutils"
+  echo "Cloning BinUtils"
   git clone git://sourceware.org/git/binutils-gdb.git -b binutils-2_41-release binutils --depth=1
-  echo "Cloned binutils!"
+  echo "Cloned BinUtils!"
   echo "Cloning GCC"
   git clone git://gcc.gnu.org/git/gcc.git -b releases/gcc-13 gcc --depth=1
   cd "${WORK_DIR}"
@@ -61,7 +61,7 @@ build_binutils() {
     --disable-werror \
     --enable-gold \
     --prefix="$PREFIX" \
-    --with-pkgversion="Eva Binutils" \
+    --with-pkgversion="AkumaHunt3r's Binutils" \
     --with-sysroot
   make -j$(nproc --all)
   make install -j$(nproc --all)
@@ -99,7 +99,7 @@ build_gcc() {
     --with-headers="/usr/include" \
     --with-linker-hash-style=gnu \
     --with-newlib \
-    --with-pkgversion="Eva GCC" \
+    --with-pkgversion="AkumaHunt3r's GCC" \
     --with-sysroot
 
   make all-gcc -j$(nproc --all)
