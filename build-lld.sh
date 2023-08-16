@@ -27,7 +27,7 @@ export PREFIX="./../gcc-${arch}"
 export PATH="$PREFIX/bin:$PATH"
 
 echo "Cleaning up previously cloned repos..."
-rm -rf $WORK_DIR/llvm-project
+rm -rf $WORK_DIR/llvm
 
 echo "Building Integrated lld for ${arch} with ${TARGET_CLANG} as target"
 
@@ -35,7 +35,7 @@ download_resources() {
   echo ">"
   echo "> Downloading LLVM for LLD"
   echo ">"
-  git clone https://github.com/llvm/llvm-project -b main llvm --depth=1
+  git clone https://github.com/llvm/llvm-project -b llvmorg-16.0.6 llvm --depth=1
   cd "${WORK_DIR}"
 }
 
