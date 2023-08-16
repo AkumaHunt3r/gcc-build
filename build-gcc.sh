@@ -26,7 +26,9 @@ esac
 export WORK_DIR="$PWD"
 export PREFIX="$WORK_DIR/../gcc-${arch}"
 export PATH="$PREFIX/bin:/usr/bin/core_perl:$PATH"
-export OPT_FLAGS="-flto -flto-compression-level=10 -O3 -pipe -ffunction-sections -fdata-sections"
+
+GRAPHITE_FLAGS="-fgraphite-identity -floop-nest-optimize -floop-parallelize-all -ftree-loop-if-convert -ftree-loop-distribution -floop-interchange"
+export OPT_FLAGS="-flto -flto-compression-level=10 -O3 -pipe -ffunction-sections -fdata-sections ${GRAPHITE_FLAGS}"
 
 echo "Cleaning up previously cloned repos..."
 rm -rf $WORK_DIR/{binutils,build-binutils,build-gcc,gcc}
