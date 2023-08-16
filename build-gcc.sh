@@ -51,7 +51,7 @@ download_resources() {
 build_binutils() {
   cd "${WORK_DIR}"
   echo "Building Binutils"
-  mkdir build-binutils
+  mkdir -p build-binutils
   cd build-binutils
   env CFLAGS="$OPT_FLAGS" CXXFLAGS="$OPT_FLAGS" \
     ../binutils/configure --target=$TARGET \
@@ -74,9 +74,8 @@ build_gcc() {
   echo "Building GCC"
   cd gcc
   ./contrib/download_prerequisites
-  echo "Bleeding Edge" > gcc/DEV-PHASE
   cd ../
-  mkdir build-gcc
+  mkdir -p build-gcc
   cd build-gcc
   env CFLAGS="$OPT_FLAGS" CXXFLAGS="$OPT_FLAGS" \
     ../gcc/configure --target=$TARGET \
